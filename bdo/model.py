@@ -1,6 +1,3 @@
-# The transformer blocks follow the ViT implementation of I-JEPA
-# (Copyright (c) Meta Platforms, Inc. and affiliates, https://github.com/facebookresearch/ijepa).
-
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
