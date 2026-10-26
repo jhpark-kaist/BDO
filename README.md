@@ -77,9 +77,3 @@ year={2026},
 url={https://openreview.net/forum?id=N51nP3TBwR}
 }
 ```
-
-## License
-
-TODO
-
-The transformer blocks follow the ViT implementation of [I-JEPA](https://github.com/facebookresearch/ijepa) (Meta Platforms, Inc.).
