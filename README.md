@@ -1,6 +1,6 @@
 # BDO: Stochastic Optimal Control for Continuous-Time fMRI Representation Learning
 
-Pre-trained encoders from *Stochastic Optimal Control for Continuous-Time fMRI Representation Learning* (ICLR 2026).
+Pre-trained encoders from [*Stochastic Optimal Control for Continuous-Time fMRI Representation Learning*](https://openreview.net/forum?id=N51nP3TBwR) (ICLR 2026).
 
 This repository contains inference code only: the encoder, the input normalization, and the pre-trained weights. The pre-training code is not released yet.
 
@@ -34,8 +34,6 @@ Normalize the scans with `bdo.RobustScaler` (paper, App. D.1):
 2. Center each ROI per scan.
 3. Robust-scale each ROI with the median and interquartile range over a reference set of scans.
 
-The paper fits the scaler on the training split of each downstream dataset.
-
 The encoder takes the acquisition time of every step in seconds, so the sampling grid can be irregular. Scans with different repetition times (TR) can be fed directly.
 
 ## Usage
@@ -67,25 +65,16 @@ From the command line:
 python examples/extract_embeddings.py --weights weights/bdo_5m.pt --tr 0.72 --out embeddings.npz data/*.npy
 ```
 
-## Downstream evaluation
-
-The paper's linear probing uses the frozen encoder. The subject representation is the time average of the latent sequence (`embed_subject`), and a single linear layer is trained on it.
-
-Any linear model on the extracted embeddings follows the same protocol, for example:
-
-```python
-from sklearn.linear_model import LogisticRegression
-clf = LogisticRegression(max_iter=1000).fit(h_train, y_train)
-```
-
 ## Citation
 
 ```bibtex
-@inproceedings{bdo2026,
-  title     = {Stochastic Optimal Control for Continuous-Time fMRI Representation Learning},
-  author    = {TODO},
-  booktitle = {International Conference on Learning Representations (ICLR)},
-  year      = {2026}
+@inproceedings{
+park2026stochastic,
+title={Stochastic Optimal Control for Continuous-Time f{MRI} Representation Learning},
+author={Joonhyeong Park and Byoungwoo Park and Chang-Bae Bang and Jungwon Choi and Hyungjin Chung and Byung-Hoon Kim and Juho Lee},
+booktitle={The Fourteenth International Conference on Learning Representations},
+year={2026},
+url={https://openreview.net/forum?id=N51nP3TBwR}
 }
 ```
 
